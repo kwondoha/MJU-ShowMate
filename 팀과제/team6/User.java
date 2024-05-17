@@ -1,14 +1,25 @@
 package org.example;
 
-public class User {
+public abstract class User {
     private String userId;
     private String userName;
     private String password;
     private String phoneNumber;
 
-    public void login(){} // 다이어그램엔 매개변수가 있었으나 일단 뺌
-    public void updateProfile(User user){}
+    public void login(String id, String password) { }
+
+    public void updateProfile() { }
 }
+
+
+public class StandardUser extends User {
+    private String membershipLevel;
+}
+
+public class PremiumUser extends User {
+    private String membershipLevel;
+}
+
 
 class Registration{
     public User registerUser(){
@@ -16,16 +27,37 @@ class Registration{
     }
 }
 
-class UserAuthentication{
-    public boolean authenticateUser(String uid){
-        return true;
+public class UserAuthentication {
+    private VerificationAdapter verificationAdapter;
+
+    public boolean authenticateUser(User user) { 
+        return true; 
+    }
+
+    public void setVerificationAdapter(VerificationAdapter adapter) { }
+}
+
+public class LoginController {
+    public boolean authenticate(UserAuthentication ua, User user) { 
+        return true; 
+    }
+
+    public void findPW(userId uid) { }
+
+    public String resetPW() { 
+        return ""; 
     }
 }
-class LoginController{
-    public boolean authenticate(UserAuthentication ua){
-        return true;
-    }
+
+public interface VerificationAdapter {
+    boolean verifyCode(userId uid, String code);
 }
+
+public interface AuthenticationStrategy {
+    boolean authenticateUser(userId uid);
+}
+
+
 
 class SMSVerification{
     public void sendSMSCode(){}
@@ -37,6 +69,24 @@ class SMSVerification{
 class KakaoVerification{
     public void sendKakaoCode(){}
     public boolean verifyKakaoCode(){
+        return true;
+    }
+}
+
+public class SMSVerificationAdapter implements VerificationAdapter {
+    private SMSVerification smsVerification;
+
+    @Override
+    public boolean verifyCode(userId uid, String code) {
+        return true;
+    }
+}
+
+public class KakaoVerificationAdapter implements VerificationAdapter {
+    private KakaoVerification kakaoVerification;
+
+    @Override
+    public boolean verifyCode(userId uid, String code) {
         return true;
     }
 }
