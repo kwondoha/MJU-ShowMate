@@ -8,10 +8,6 @@ abstract class PathFinder {
     private Location currentLocation;
     private Location eventLocation;
 
-    public Path findPath(Location start, Location end){
-        return null;
-    }
-
     abstract PathAlgorithm createAlgorithm();
 }
 
@@ -88,12 +84,6 @@ class Location {
     private String name;
     private float latitude;
     private float longitude;
-
-    public Location(String name, float latitude, float longitude) {
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
 }
 
 class LocationFlyweight extends Location{
