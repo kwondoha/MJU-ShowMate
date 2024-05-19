@@ -1,4 +1,4 @@
-package org.example;
+package team6;
 
 public abstract class Review {
     private int reviewId;

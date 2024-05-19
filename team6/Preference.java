@@ -1,3 +1,8 @@
+package team6;
+
+import java.util.List;
+import java.util.Map;
+
 public class Preference{
     private List<Integer> interests;
     private List<Integer> reservationHistory;
@@ -11,16 +16,16 @@ public class Preference{
 
     public void notifyObservers() {}
 
-} 
+}
 
 class Observer {
-    void update(Preference preference);
+    void update(Preference preference){};
 }
 
 class PreferenceController{
-    void checkPreference(Preference prefer);
-    void changePreference(Preference prefer);
-    void displayPreference(Preference prefer);
+    void checkPreference(Preference prefer){};
+    void changePreference(Preference prefer){};
+    void displayPreference(Preference prefer) {};
 }
 
 class ShowRecommendation{

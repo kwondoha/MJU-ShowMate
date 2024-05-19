@@ -1,10 +1,7 @@
-package org.example;
+package team6;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
-
 
 public abstract class Show {
     private String name;
@@ -151,4 +148,3 @@ class Matching {
     public void cancel() {
     }
 }
-

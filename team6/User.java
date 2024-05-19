@@ -1,60 +1,66 @@
-package org.example;
+package team6;
+
+import java.util.List;
 
 public abstract class User {
     private String userId;
     private String userName;
     private String password;
     private String phoneNumber;
+    private List<Mate> mates;
 
-    public void login(String id, String password) { }
+    void login(String id, String password) { }
 
-    public void updateProfile() { }
+    void updateProfile() { }
+    public void addMate(Mate mate) {
+        this.mates.add(mate);
+    }
 }
 
 
-public class StandardUser extends User {
+class StandardUser extends User {
     private String membershipLevel;
 }
 
-public class PremiumUser extends User {
+class PremiumUser extends User {
     private String membershipLevel;
 }
 
 
 class Registration{
     public User registerUser(){
-        return new User();
+        return new User() {};
     }
 }
 
-public class UserAuthentication {
+class UserAuthentication {
     private VerificationAdapter verificationAdapter;
 
-    public boolean authenticateUser(User user) { 
-        return true; 
+    public boolean authenticateUser(User user) {
+        return true;
     }
 
     public void setVerificationAdapter(VerificationAdapter adapter) { }
 }
 
-public class LoginController {
-    public boolean authenticate(UserAuthentication ua, User user) { 
-        return true; 
+class LoginController {
+    public boolean authenticate(UserAuthentication ua, User user) {
+        return true;
     }
 
-    public void findPW(userId uid) { }
+    public void findPW(String uid) { }
 
-    public String resetPW() { 
-        return ""; 
+    public String resetPW() {
+        return null;
     }
 }
 
-public interface VerificationAdapter {
-    boolean verifyCode(userId uid, String code);
+interface VerificationAdapter {
+    boolean verifyCode(String uid, String code);
 }
 
-public interface AuthenticationStrategy {
-    boolean authenticateUser(userId uid);
+interface AuthenticationStrategy {
+    boolean authenticateUser(String uid);
 }
 
 
@@ -73,20 +79,20 @@ class KakaoVerification{
     }
 }
 
-public class SMSVerificationAdapter implements VerificationAdapter {
+class SMSVerificationAdapter implements VerificationAdapter {
     private SMSVerification smsVerification;
 
     @Override
-    public boolean verifyCode(userId uid, String code) {
+    public boolean verifyCode(String uid, String code) {
         return true;
     }
 }
 
-public class KakaoVerificationAdapter implements VerificationAdapter {
+class KakaoVerificationAdapter implements VerificationAdapter {
     private KakaoVerification kakaoVerification;
 
     @Override
-    public boolean verifyCode(userId uid, String code) {
+    public boolean verifyCode(String uid, String code) {
         return true;
     }
 }
