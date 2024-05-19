@@ -6,17 +6,17 @@ public abstract class User {
     private String password;
     private String phoneNumber;
 
-    public void login(String id, String password) { }
+    void login(String id, String password) { }
 
-    public void updateProfile() { }
+    void updateProfile() { }
 }
 
 
-public class StandardUser extends User {
+class StandardUser extends User {
     private String membershipLevel;
 }
 
-public class PremiumUser extends User {
+class PremiumUser extends User {
     private String membershipLevel;
 }
 
@@ -27,7 +27,7 @@ class Registration{
     }
 }
 
-public class UserAuthentication {
+class UserAuthentication {
     private VerificationAdapter verificationAdapter;
 
     public boolean authenticateUser(User user) { 
@@ -37,24 +37,24 @@ public class UserAuthentication {
     public void setVerificationAdapter(VerificationAdapter adapter) { }
 }
 
-public class LoginController {
+class LoginController {
     public boolean authenticate(UserAuthentication ua, User user) { 
         return true; 
     }
 
-    public void findPW(userId uid) { }
+    public void findPW(String uid) { }
 
     public String resetPW() { 
-        return ""; 
+        return null; 
     }
 }
 
-public interface VerificationAdapter {
-    boolean verifyCode(userId uid, String code);
+interface VerificationAdapter {
+    boolean verifyCode(String uid, String code);
 }
 
-public interface AuthenticationStrategy {
-    boolean authenticateUser(userId uid);
+interface AuthenticationStrategy {
+    boolean authenticateUser(String uid);
 }
 
 
@@ -73,20 +73,20 @@ class KakaoVerification{
     }
 }
 
-public class SMSVerificationAdapter implements VerificationAdapter {
+class SMSVerificationAdapter implements VerificationAdapter {
     private SMSVerification smsVerification;
 
     @Override
-    public boolean verifyCode(userId uid, String code) {
+    public boolean verifyCode(String uid, String code) {
         return true;
     }
 }
 
-public class KakaoVerificationAdapter implements VerificationAdapter {
+class KakaoVerificationAdapter implements VerificationAdapter {
     private KakaoVerification kakaoVerification;
 
     @Override
-    public boolean verifyCode(userId uid, String code) {
+    public boolean verifyCode(String uid, String code) {
         return true;
     }
 }
