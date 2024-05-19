@@ -1,5 +1,3 @@
-package team6;
-
 import java.util.Date;
 import java.util.List;
 

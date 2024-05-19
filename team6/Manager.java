@@ -1,5 +1,3 @@
-package team6;
-
 public abstract class Manager {
 }
 
