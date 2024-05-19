@@ -1,7 +1,5 @@
-package team6;
-
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public class Preference{
     private List<Integer> interests;
@@ -35,5 +33,5 @@ class ShowRecommendation{
         return null;
     }
 
-    public void update(Preference preference) {}
+    public void update(Preference preference) {};
 }

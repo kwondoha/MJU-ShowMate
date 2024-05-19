@@ -1,7 +1,4 @@
-package team6;
-
 import java.util.List;
-
 public abstract class User {
     private String userId;
     private String userName;
