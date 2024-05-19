@@ -1,3 +1,5 @@
+import java.util.List;
+
 public abstract class Review {
     private int reviewId;
     private String content;
@@ -17,6 +19,26 @@ class UserReview extends Review{
     public void save(User user){}
     public void delete(User user){}
     public void display(User user){}
+}
+
+interface ReviewIterator {
+    boolean hasNext();
+    Review next();
+}
+
+class ReviewList implements ReviewIterator {
+    private List<Review> reviews;
+    private int position;
+
+    @Override
+    public boolean hasNext() {
+        return position < reviews.size();
+    }
+
+    @Override
+    public Review next() {
+        return null;
+    }
 }
 
 interface Image{
