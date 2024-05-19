@@ -1,3 +1,6 @@
+import java.util.Map;
+import java.util.List;
+
 public class Preference{
     private List<Integer> interests;
     private List<Integer> reservationHistory;
@@ -14,13 +17,13 @@ public class Preference{
 } 
 
 class Observer {
-    void update(Preference preference);
+    void update(Preference preference){};
 }
 
 class PreferenceController{
-    void checkPreference(Preference prefer);
-    void changePreference(Preference prefer);
-    void displayPreference(Preference prefer);
+    void checkPreference(Preference prefer){};
+    void changePreference(Preference prefer){};
+    void displayPreference(Preference prefer){};
 }
 
 class ShowRecommendation{
@@ -30,5 +33,5 @@ class ShowRecommendation{
         return null;
     }
 
-    public void update(Preference preference) {}
+    public void update(Preference preference) {};
 }
