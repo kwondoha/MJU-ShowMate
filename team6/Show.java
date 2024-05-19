@@ -67,20 +67,6 @@ class Play extends Show {
 }
 
 class Musical extends Show {
-    private Cast cast;
-
-    public Musical(Cast cast) {
-        this.cast = cast;
-    }
-
-    public Cast getCast() {
-        return cast;
-    }
-
-    @Override
-    public String displayInfo(int showId) {
-        return "Musical Info: " + getName() + ", Venue: " + getVenue() + ", Date: " + getDate() + ", Rating: " + getRating() + ", Cast: " + getCast();
-    }
 }
 
 class Concert extends Show {
