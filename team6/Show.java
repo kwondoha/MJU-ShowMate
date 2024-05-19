@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Date;
+import java.util.List;
 
 public abstract class Show {
     private String name;
@@ -16,7 +17,12 @@ public abstract class Show {
     public void authenticateTicket(TicketAuthentication ta) {}
     //public void match(Matching matching) {}
     //public void recommend(ShowRecommendation sr) {}
-    //public void findPath(PathFinder pf) {}
+    public void findPath(PathFinder pf) {}
+}
+
+class MyShow{
+    private List<Show> myShow;
+    public void displayShowList(){}
 }
 
 class Cast{}
@@ -35,10 +41,6 @@ class ShowFactory {
     }
 }
 
-class CastFactory {}
-class HostFactory {}
-class ArtistFactory {}
-
 class Play extends Show { }
 class Musical extends Show { }
 class Concert extends Show { }
@@ -53,10 +55,25 @@ class TicketAuthentication {
     public boolean authenticateTicket() {
         return true;
     }
-
 }
 
 class Ticket {
     private int ticketNumber;
     private boolean isAuthenticated;
+}
+
+class Mate {
+    private List<String> message;
+    private User user1;
+    private User user2;
+
+    public void chat(){}
+}
+class Matching{
+    public void request(){}
+    public Mate accept(){
+        return new Mate();
+    }
+    public void reject(){}
+    public void cancel(){}
 }
