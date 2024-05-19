@@ -1,5 +1,3 @@
-package org.example;
-
 public abstract class Review {
     private int reviewId;
     private String content;

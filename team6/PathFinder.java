@@ -1,5 +1,4 @@
-package org.example;
-
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.HashMap;
@@ -92,8 +91,7 @@ class LocationFlyweight extends Location{
     private float longitude;
 
     public LocationFlyweight(String name, float latitude, float longitude) {
-        super(name, latitude, longitude);
-    }
+}
 }
 
 class LocationFactory {
@@ -107,6 +105,6 @@ class LocationFactory {
 class GPS {
     public Location getCurrentLocation() {
         // 실제 구현에서는 GPS 모듈에서 현재 위치를 가져오는 로직이 필요합니다.
-        return new Location("Current Location", 37.7749f, -122.4194f); //현재 위치 반환(예시)
+        return new Location();
     }
 }

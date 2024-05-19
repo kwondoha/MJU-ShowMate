@@ -14,7 +14,7 @@ public class Preference{
 
     public void notifyObservers() {}
 
-} 
+}
 
 class Observer {
     void update(Preference preference){};
@@ -23,7 +23,7 @@ class Observer {
 class PreferenceController{
     void checkPreference(Preference prefer){};
     void changePreference(Preference prefer){};
-    void displayPreference(Preference prefer){};
+    void displayPreference(Preference prefer) {};
 }
 
 class ShowRecommendation{
