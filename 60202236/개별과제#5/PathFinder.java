@@ -275,3 +275,4 @@ public class GPS {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
         return currentLocation;
     }
+}
